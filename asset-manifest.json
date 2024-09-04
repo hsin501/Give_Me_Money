@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Give_Me_Money/static/css/main.f38a3276.css",
+    "main.js": "/Give_Me_Money/static/js/main.b3b35232.js",
+    "index.html": "/Give_Me_Money/index.html",
+    "main.f38a3276.css.map": "/Give_Me_Money/static/css/main.f38a3276.css.map",
+    "main.b3b35232.js.map": "/Give_Me_Money/static/js/main.b3b35232.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f38a3276.css",
+    "static/js/main.b3b35232.js"
+  ]
+}
