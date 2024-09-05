@@ -36,7 +36,8 @@
 
 - 當你與好友 Clark 吃飯後，你支付了所有費用，你可以使用此應用來記錄這筆交易並顯示 Clark 欠你多少錢。
 
-##檔案結構
+## 檔案結構
+ ```bash
 .
 ├── public/               # 公共資源 (靜態資源，如圖片等)
 ├── src/
@@ -47,8 +48,8 @@
 │   ├── header.css        # Header樣式
 │   └── header.js         # Header組件
 └── package.json          # npm 專案設定檔
+ ```
 
-
-##使用技術
--React: 用於構建用戶界面。
--CSS: 用於樣式設計,樣式位於`footer.css.header.css.index.css`中。
+## 使用技術
+- React: 用於構建用戶界面。
+- CSS: 用於樣式設計,樣式位於`footer.css.header.css.index.css`中。
