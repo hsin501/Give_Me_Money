@@ -1,8 +1,14 @@
 :root {
-  --color-lightest: #fff4e6;
-  --color-light: #ffe8cc;
-  --color-medium: #ffa94d;
-  --color-dark: #ff922b;
+  --color-light: #5a5346;
+  --color-medium: #d9cbb0;
+  --color-dark: #d8a371;
+  --background: hsl(36, 39%, 88%);
+  --muted: hsl(36, 33%, 75%);
+  --muted-foreground: hsl(36, 45%, 25%);
+  --card: hsl(36, 46%, 82%);
+  --border: hsl(36, 45%, 60%);
+  --input: hsl(36, 45%, 60%);
+  --radius: 0rem;
 }
 
 * {
@@ -11,34 +17,39 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
 html {
   font-size: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 body {
-  height: 100vh;
-  color: #495057;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #4a381c;
+  background-color: var(--background);
+  overflow: hidden;
 }
 
 .app {
-  min-height: 66vh;
-  display: grid;
-  grid-template-columns: 34rem 44rem;
-  column-gap: 4rem;
+  justify-content: center;
+  display: flex;
+  min-height: 95vh;
+  /* column-gap: 2rem; */
   align-items: start;
+  transition: grid-template-columns 0.5s ease-in-out; /* 加入動畫過渡 */
+  flex: 1;
+  padding: 20rem 0 0 0;
 }
 
 .button {
   background-color: var(--color-medium);
-  color: #343a40;
+  color: #5c4523;
   padding: 0.8rem 1.2rem;
   border: none;
-  border-radius: 7px;
+  border-radius: 9999px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -47,7 +58,24 @@ body {
 .button:hover {
   background-color: var(--color-dark);
 }
-
+.sidebar {
+  position: relative;
+  transition: transform 0.4s ease-in-out; /* 加入移動效果 */
+}
+/* 當 sidebar 被選擇時的樣式 */
+.sidebar.move-left {
+  transform: translateX(-5%); /* 移動到左邊 */
+}
+/* 當 sidebar 關閉時的樣式 */
+.sidebar.move-center {
+  transform: translateX(0); /* 回到中間 */
+}
+.sidebar {
+  background-color: var(--card);
+  padding: 1.2rem;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+}
 .sidebar ul {
   list-style: none;
   display: flex;
@@ -65,12 +93,12 @@ body {
 
   padding: 1.2rem;
   border-radius: 7px;
-  transition: 0.5s;
+  transition: background-color 0.3s;
 }
 
 .selected,
 .sidebar li:hover {
-  background-color: var(--color-lightest);
+  background-color: var(--card);
 }
 
 .sidebar li img {
@@ -112,11 +140,32 @@ form {
   display: grid;
   align-items: center;
   gap: 1.2rem;
-
-  background-color: var(--color-lightest);
+  background-color: var(--card);
   border-radius: 7px;
 }
+/* 設定form初始樣式 */
+.form-container {
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(0);
+  opacity: 0; /* 初始時為隱藏 */
+}
 
+/* 當選擇朋友時form往右 */
+.form-slide-right {
+  transform: translateX(5%);
+  opacity: 1; /* 淡入 */
+}
+
+/* 當不選擇朋友時form移回原位 */
+.form-slide-left {
+  transform: translateX(0);
+  opacity: 0; /*淡出  */
+}
+/* 避免 form 在狀態變化時過度透明 */
+.form-container.hidden {
+  display: none; /* 隱藏不顯示的 form */
+}
 .form-add-friend {
   grid-template-columns: 1fr 1.5fr;
   margin-bottom: 1.6rem;
@@ -146,7 +195,7 @@ select {
   text-align: center;
   border: 1px solid var(--color-light);
   border-radius: 4px;
-  transition: 0.3s;
+  transition: border 0.3s;
 }
 
 input:focus,

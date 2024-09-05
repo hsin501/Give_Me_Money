@@ -31,7 +31,6 @@ function Button({ children, onClick }) {
 
 export default function App() {
   const [friends, setFriends] = useState(initialFriends);
-
   const [showAddFriend, setShowAddFriend] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState(null);
 
@@ -41,17 +40,15 @@ export default function App() {
 
   function handleAddFriend(friend) {
     setFriends((friends) => [...friends, friend]);
-    setShowAddFriend(false); //提交後關閉
+    setShowAddFriend(false);
   }
 
-  function handleSelcted(friend) {
-    // setSelectedFriend(friend);
+  function handleSelectFriend(friend) {
     setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
     setShowAddFriend(false);
   }
 
   function handleSplitBill(value) {
-    // console.log(value);
     setFriends((friends) =>
       friends.map((friend) =>
         friend.id === selectedFriend.id
@@ -59,36 +56,41 @@ export default function App() {
           : friend
       )
     );
-
     setSelectedFriend(null);
   }
+
   return (
     <div className='app'>
-      <div className='sidebar'>
+      <div
+        className={`sidebar ${selectedFriend ? 'move-left' : 'move-center'}`}
+      >
         <FriendsList
           friends={friends}
-          onSelection={handleSelcted}
+          onSelection={handleSelectFriend}
           selectedFriend={selectedFriend}
         />
-
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
-
         <Button onClick={handleShowAddFriend}>
           {showAddFriend ? '關閉' : '新增好友'}
         </Button>
       </div>
 
-      {selectedFriend && (
-        <FormSplitBill
-          selectedFriend={selectedFriend}
-          onSplitBill={handleSplitBill}
-          key={selectedFriend.id}
-        />
-      )}
+      <div
+        className={`form-container ${
+          selectedFriend ? 'form-slide-right' : 'form-slide-left'
+        }`}
+      >
+        {selectedFriend && (
+          <FormSplitBill
+            selectedFriend={selectedFriend}
+            onSplitBill={handleSplitBill}
+            key={selectedFriend.id}
+          />
+        )}
+      </div>
     </div>
   );
 }
-
 function FriendsList({ friends, onSelection, selectedFriend }) {
   // const friends = initialFriends;
   return (
