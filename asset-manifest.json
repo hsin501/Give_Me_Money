@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Give_Me_Money/static/css/main.c2b0e911.css",
+    "main.css": "/Give_Me_Money/static/css/main.ccdaa770.css",
     "main.js": "/Give_Me_Money/static/js/main.3ebab321.js",
     "index.html": "/Give_Me_Money/index.html",
-    "main.c2b0e911.css.map": "/Give_Me_Money/static/css/main.c2b0e911.css.map",
+    "main.ccdaa770.css.map": "/Give_Me_Money/static/css/main.ccdaa770.css.map",
     "main.3ebab321.js.map": "/Give_Me_Money/static/js/main.3ebab321.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2b0e911.css",
+    "static/css/main.ccdaa770.css",
     "static/js/main.3ebab321.js"
   ]
 }
