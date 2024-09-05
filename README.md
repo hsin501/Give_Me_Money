@@ -52,11 +52,16 @@
 
  ```
 ## 組件
-`App`：主要應用程式組件，管理應用狀態並渲染其他組件。
-`FriendsList`：顯示朋友列表的組件。
-`Friend`：顯示單個朋友的詳細資訊。
-`FormAddFriend`：用於添加新朋友的表單組件。
-`FormSplitBill`：用於計算分帳的表單組件。
+`App`：主要應用程式組件，管理應用狀態並渲染其他組件。  
+
+`FriendsList`：顯示朋友列表的組件。  
+
+`Friend`：顯示單個朋友的詳細資訊。  
+
+`FormAddFriend`：用於添加新朋友的表單組件。  
+
+`FormSplitBill`：用於計算分帳的表單組件。  
+
 `Button`：簡單的按鈕組件。
 
 ## 使用技術
