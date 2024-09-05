@@ -51,5 +51,5 @@
  ```
 
 ## 使用技術
-- React: 用於構建用戶界面。
-- CSS: 用於樣式設計,樣式位於`footer.css.header.css.index.css`中。
+- React
+- CSS
